@@ -1,0 +1,356 @@
+/* Estilos Gerais */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+  display: flex;
+  flex-direction: column;
+  background-color: #f5f5f5;
+  color: #000;
+  transition: background-color 0.3s, color 0.3s;
+}
+
+/* Header Fixo */
+.site-header {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  background-color: #00aaff;
+  color: white;
+  z-index: 1000;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.header-container {
+  max-width: 1200px;
+  margin: 0 auto;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 15px;
+  position: relative;
+}
+
+.header-container h1 {
+  margin: 0;
+  text-align: center;
+  flex: 1;
+}
+
+.header-container i {
+  /* position: absolute; */
+  right: 15px;
+  font-size: 20px;
+  cursor: pointer;
+  transition: color 0.3s;
+}
+
+.header-container a.github-link {
+  margin-right: 10px;
+  /* Espaçamento entre os ícones */
+  color: white;
+  /* Cor inicial do ícone */
+  font-size: 20px;
+  text-decoration: none;
+  transition: opacity 0.3s;
+}
+
+.header-container a.github-link:hover {
+  opacity: 0.8;
+}
+
+.header-container i {
+  font-size: 20px;
+  cursor: pointer;
+  transition: opacity 0.3s;
+}
+
+#theme-toggle {
+  margin-left: 10px;
+}
+
+.header-container i:hover {
+  opacity: 0.8;
+}
+
+/* Chat Container */
+.chat-container {
+  margin-top: 110px;
+  width: 90%;
+  max-width: 750px;
+  margin-left: auto;
+  margin-right: auto;
+  border-radius: 8px;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+}
+
+/* Mensagens */
+.chat-messages {
+  flex: 1;
+  padding: 15px;
+  overflow-y: auto;
+  max-height: 400px;
+  /* background-color: #f9f9f9; */
+  border: 1px solid #ddd;
+}
+
+.message {
+  margin: 10px 0;
+  padding: 10px;
+  border-radius: 8px;
+  max-width: 80%;
+  word-wrap: break-word;
+}
+
+.message p {
+  padding: 10px 15px;
+  border-radius: 15px;
+  /* max-width: 80%; */
+  word-wrap: break-word;
+  margin: 10px 0;
+}
+
+.bot-message p {
+  background-color: #d1d1d1;
+}
+
+.user-message p {
+  background-color: #00aaff;
+  color: white;
+}
+
+/* Entrada de Texto */
+.chat-input {
+  display: flex;
+}
+
+.chat-input input {
+  flex: 1;
+  padding: 15px;
+  border: none;
+  font-size: 16px;
+}
+
+.chat-input input:focus {
+  outline: none;
+}
+
+.chat-input button {
+  padding: 15px;
+  border: none;
+  color: white;
+  font-size: 16px;
+  cursor: pointer;
+}
+
+/* Tema Light */
+body.light {
+  background-color: #f5f5f5;
+  color: #000;
+}
+
+.site-header.light {
+  background-color: #00aaff;
+}
+
+.chat-input.light input {
+  background-color: #ffffff;
+  color: #000;
+  display: flex;
+  border-top: 1px solid #ddd;
+}
+
+.chat-input.light button {
+  background-color: #00aaff;
+}
+
+.chat-input.light button:hover {
+  background-color: #008ccc;
+}
+
+.chat-messages.light {
+  background-color: #f9f9f9;
+  border: 1px solid #ddd;
+}
+
+.chat-container.light {
+  background-color: white;
+}
+
+.subtitle.light {
+  color: #333;
+}
+
+/* Tema Dark */
+body.dark {
+  background-color: #1e1e1e;
+  color: #f5f5f5;
+}
+
+.site-header.dark {
+  background-color: #333333;
+}
+
+.chat-input.dark input {
+  background-color: #333333;
+  color: #f5f5f5;
+  display: flex;
+  border-top: 1px solid #565656;
+}
+
+.chat-input.dark button {
+  background-color: #515151;
+}
+
+.chat-input.dark button:hover {
+  background-color: #1e3946;
+}
+
+.chat-messages.dark {
+  /* background-color: #10485A;
+  border: 1px solid #10485A; */
+  background-color: #1B1E1F;
+  border: 1px solid #303738;
+
+  .user-message {
+    background-color: rgb(20, 59, 67);
+    color: rgb(232, 230, 227);
+  }
+
+  .bot-message {
+    background-color: rgb(50, 54, 56);
+    color: rgb(232, 230, 227);
+  }
+
+  .bot-message p, ul {
+    background-color: rgb(50, 54, 56);
+    color: rgb(232, 230, 227);
+
+    .message code {
+      background-color: #f1f1f1;
+      color: #000 !important;
+    }
+  }
+}
+
+.chat-container.dark {
+  background-color: #1B1E1F;
+}
+
+.subtitle.dark {
+  color: #7b7265;
+}
+
+/* Subtítulo com efeito de digitação */
+.subtitle {
+  margin: 120px auto 20px;
+  text-align: center;
+  font-size: 1.2rem;
+  font-weight: 300;
+  font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+}
+
+.subtitle #typing-effect {
+  display: inline-block;
+  border-right: 2px solid #333;
+  padding-right: 5px;
+  animation: cursor-blink 0.7s step-end infinite;
+  font-weight: 500;
+}
+
+/* Efeito de piscada no cursor */
+@keyframes cursor-blink {
+
+  from,
+  to {
+    border-color: transparent;
+  }
+
+  50% {
+    border-color: #333;
+  }
+}
+
+.user-message {
+  background-color: #d1ecf1;
+  color: #000;
+  text-align: right;
+  margin-left: auto;
+}
+
+.bot-message {
+  color: #000;
+  text-align: left;
+  margin-right: auto;
+}
+
+.message code {
+  background-color: #f1f1f1;
+  color: #000 !important;
+  padding: 2px 4px;
+  border-radius: 3px;
+  font-family: monospace;
+}
+
+.hidden {
+  display: none !important;
+}
+
+.visible {
+  display: block;
+}
+
+ul {
+  background-color: #d1d1d1;
+  border-radius: 8px;
+  padding: 20px;
+  padding-left: 30px;
+}
+
+.typing-indicator {
+  display: flex;
+  align-items: center;
+  margin: 10px 20px;
+}
+
+.typing-indicator span {
+  width: 8px;
+  height: 8px;
+  margin: 0 4px;
+  background-color: #ccc;
+  border-radius: 50%;
+  animation: dots-blink 1.2s infinite ease-in-out;
+}
+
+.typing-indicator span:nth-child(1) {
+  animation-delay: 0s;
+}
+
+.typing-indicator span:nth-child(2) {
+  animation-delay: 0.2s;
+}
+
+.typing-indicator span:nth-child(3) {
+  animation-delay: 0.4s;
+}
+
+@keyframes dots-blink {
+
+  0%,
+  80%,
+  100% {
+    opacity: 0;
+  }
+
+  40% {
+    opacity: 1;
+  }
+}

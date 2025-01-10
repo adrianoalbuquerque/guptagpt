@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>GuptaGPT</title>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="styles.css"/>
+  </head>
+  <body>
+    <header id="site-header" class="site-header">
+      <div class="header-container">
+        <h1>GuptaGPT</h1>
+        <a href="https://github.com/adrianoalbuquerque/guptagpt" target="_blank" class="github-link">
+          <i class="fa fa-github" aria-hidden="true"></i>
+        </a>
+        <i id="theme-toggle" class="fa fa-moon-o" aria-hidden="true"></i>
+      </div>
+    </header>
+    <div id="subtitle" class="subtitle">
+      <h3 id="typing-effect"></span>
+    </div>
+    <div id="chat-container" class="chat-container">
+      <div id="chat-messages" class="chat-messages hidden"></div>
+      <div id="typing-indicator" class="typing-indicator hidden">
+        <span></span>
+        <span></span>
+        <span></span>
+      </div>
+      <form class="chat-input" id="chat-form">
+        <input
+          type="text"
+          id="chat-input"
+          placeholder="Peça ao GuptaGPT..."
+          autocomplete="off"
+          required
+        />
+        <button id="sendButton" type="submit">Enviar</button>
+      </form>
+    </div>
+    <script src="bundle.js"></script>
+  </body>
+</html>
