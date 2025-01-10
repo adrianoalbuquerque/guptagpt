@@ -226,7 +226,7 @@ body.dark {
   }
 
   .bot-message {
-    background-color: rgb(50, 54, 56);
+    /* background-color: rgb(50, 54, 56); */
     color: rgb(232, 230, 227);
   }
 
