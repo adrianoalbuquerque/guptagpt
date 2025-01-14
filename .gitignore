@@ -1,0 +1,28 @@
+# Diretórios e arquivos gerados automaticamente
+/node_modules/
+/dist/
+/coverage/
+
+# Arquivos de configuração específicos do ambiente
+.env
+.env.local
+.env.*.local
+
+# Logs e relatórios de erros
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+
+# IDEs e sistemas operacionais
+.vscode/
+.idea/
+.DS_Store
+Thumbs.db
+
+# Arquivos temporários
+*.tmp
+*.log
+
+# Cache do Webpack e pacotes
+.cache/
+*.lock
