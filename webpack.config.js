@@ -1,15 +1,16 @@
-const path = require('path');
-const HtmlWebpackPlugin = require('html-webpack-plugin');
+const path = require("path");
+const HtmlWebpackPlugin = require("html-webpack-plugin");
 const MiniCssExtractPlugin = require("mini-css-extract-plugin");
+const Dotenv = require("dotenv-webpack");
 
 module.exports = (env, argv) => {
-    const isProduction = argv.mode === 'production';
+    const isProduction = argv.mode === "production";
 
     return {
-        entry: './src/index.js', // Arquivo principal
+        entry: "./src/index.js",
         output: {
             path: path.resolve(__dirname, "dist"),
-            filename: "bundle.[contenthash].js", // Hash para evitar cache
+            filename: "[name].[contenthash].js", // Nomes únicos para cada chunk
             clean: true, // Limpa a pasta dist antes de cada build
         },
         mode: isProduction ? "production" : "development",
@@ -18,55 +19,55 @@ module.exports = (env, argv) => {
                 directory: path.resolve(__dirname, "dist"),
             },
             port: 3000,
-            open: true, // Abre o navegador automaticamente
-            hot: true, // Habilita Hot Module Replacement
+            open: true,
+            hot: true,
         },
-        devtool: isProduction ? "source-map" : "eval-source-map",
+        // devtool: isProduction ? "source-map" : "eval-source-map",
         module: {
             rules: [
                 {
                     test: /\.html$/,
-                    use: ["html-loader"], // Processa o arquivo HTML
+                    use: ["html-loader"],
                 },
                 {
                     test: /\.css$/,
-                    use: [MiniCssExtractPlugin.loader, "css-loader"], // Processa CSS
+                    use: [MiniCssExtractPlugin.loader, "css-loader"],
                 },
                 {
-                    test: /\.js$/, // Processa arquivos JavaScript
+                    test: /\.js$/,
                     exclude: /node_modules/,
                     use: {
-                        loader: 'babel-loader', // Transpila código moderno para compatibilidade
+                        loader: "babel-loader",
                     },
                 },
             ],
         },
         optimization: {
             splitChunks: {
-                chunks: 'all', // Divide o código em múltiplos arquivos para maior eficiência
+                chunks: "all",
+                cacheGroups: {
+                    defaultVendors: {
+                        test: /[\\/]node_modules[\\/]/,
+                        name: "vendors",
+                        chunks: "all",
+                    },
+                },
             },
-            minimize: isProduction, // Minimiza arquivos em produção
+            minimize: isProduction,
         },
         plugins: [
             new HtmlWebpackPlugin({
-                template: "./src/index.html", // Usa o arquivo HTML como template
+                template: "./src/index.html",
                 filename: "index.html",
-                minify: isProduction ? { // Minimiza HTML em produção
+                minify: isProduction && {
                     collapseWhitespace: true,
                     removeComments: true,
-                    removeRedundantAttributes: true,
-                    useShortDoctype: true,
-                    removeEmptyAttributes: true,
-                    removeStyleLinkTypeAttributes: true,
-                    keepClosingSlash: true,
-                    minifyJS: true,
-                    minifyCSS: true,
-                    minifyURLs: true,
-                } : false,
+                },
             }),
             new MiniCssExtractPlugin({
-                filename: isProduction ? "styles.[contenthash].css" : "styles.css", // Nome com hash em produção
+                filename: isProduction ? "[name].[contenthash].css" : "[name].css",
             }),
+            new Dotenv(),
         ],
     };
 };
