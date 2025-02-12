@@ -52,7 +52,7 @@ themeToggle.addEventListener("click", function () {
 document.addEventListener("DOMContentLoaded", function () {
     loadTheme();
 
-    const text = "Olá! Eu sou o GuptaGPT. Como posso ajudar você hoje?";
+    const text = "Olá! Eu sou o Gupta AI Assistant, seu assistente virtual para ajudá-lo a depurar seu código Centura.";
     const typingEffectElement = document.getElementById("typing-effect");
     let index = 0;
 
@@ -66,3 +66,17 @@ document.addEventListener("DOMContentLoaded", function () {
 
     typeText();
 });
+
+function ajustarAlturaChat() {
+    const alturaJanela = window.innerHeight;
+    const alturaHeader = document.getElementById("site-header").offsetHeight;
+    const alturaChat = alturaJanela - alturaHeader;
+
+    document.getElementById("chat-messages").style.height = alturaChat + "px";
+
+    // s5)
+}
+
+// Ajusta no carregamento e ao redimensionar a tela
+// window.addEventListener("load", ajustarAlturaChat);
+// window.addEventListener("resize", ajustarAlturaChat);
