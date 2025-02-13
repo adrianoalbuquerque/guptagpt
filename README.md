@@ -19,6 +19,7 @@ Gupta AI Assistant é uma interface de chatbot interativa baseada em JavaScript,
 - **Google Generative AI (Gemini)** para processamento de mensagens e geração de respostas.
 - **Webpack:** Utilizado como empacotador de módulos para organizar e otimizar os arquivos do projeto.
 - **Font Awesome** para ícones na interface.
+- **Prism.js** Biblioteca para realce de sintaxe em código-fonte, usada para destacar trechos de código em aplicações web.
 
 ## Pré-requisitos
 
