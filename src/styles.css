@@ -42,6 +42,23 @@ body {
   margin-bottom: -8px;
 }
 
+@media screen and (max-width: 425px) {
+  .header-container h1 {
+    font-size: 24px;
+  }
+
+  .header-container > h1 > img {
+    width: 30px;
+    height: 30px;
+  }
+}
+
+@media screen and (max-width: 350px) {
+  .header-container h1 {
+    font-size: 20px;
+  }
+}
+
 .header-container h1 {
   margin: 0;
   text-align: center;
@@ -232,7 +249,8 @@ body.dark {
     color: rgb(232, 230, 227);
   }
 
-  .bot-message p, ul {
+  .bot-message p,
+  ul {
     /* background-color: rgb(50, 54, 56); */
     color: rgb(232, 230, 227);
 
