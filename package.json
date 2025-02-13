@@ -27,6 +27,7 @@
     "webpack-dev-server": "^5.2.0"
   },
   "dependencies": {
-    "marked": "^15.0.6"
+    "marked": "^15.0.6",
+    "prismjs": "^1.29.0"
   }
 }

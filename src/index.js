@@ -2,6 +2,33 @@ import { GoogleGenerativeAI } from '@google/generative-ai';
 import { marked } from 'marked';
 import './styles.css';
 
+import "prismjs";
+// import "prismjs/themes/prism-solarizedlight.css"; // Escolha um tema
+import "prismjs/themes/prism-tomorrow.css"; // Escolha um tema
+// import "prismjs/themes/prism-twilight.css"; // Escolha um tema
+import "prismjs/components/prism-clike"; // Base para sintaxe similar a C-like
+import "prismjs/plugins/line-numbers/prism-line-numbers.css";
+import "prismjs/plugins/line-numbers/prism-line-numbers";
+import "prismjs/plugins/toolbar/prism-toolbar.css"; // Estilo para a barra de ferramentas
+import "prismjs/plugins/toolbar/prism-toolbar"; // Plugin para a barra superior
+import "prismjs/plugins/copy-to-clipboard/prism-copy-to-clipboard"; // Adiciona o botão de copiar
+
+Prism.languages.sal = {
+  'comment': {
+    pattern: /\/\/.*/,
+    greedy: true
+  },
+  'string': {
+    pattern: /"([^"\\]|\\.)*"/,
+    greedy: true
+  },
+  'keyword': /\b(Call|Set|Return|If|Else|End If|For|While|Break|Continue|Then)\b/i,
+  'boolean': /\b(TRUE|FALSE)\b/i,
+  'number': /\b\d+(\.\d+)?\b/,
+  'operator': /[+\-*/=<>!&|]/,
+  'function': /\b[A-Za-z_][A-Za-z0-9_]*(?=\()/, // Detecta funções
+};
+
 const apiKey = process.env.GEMINI_API_KEY;
 
 const genAI = new GoogleGenerativeAI(apiKey);
@@ -21,6 +48,7 @@ const generationConfig = {
 };
 
 document.addEventListener('DOMContentLoaded', () => {
+    Prism.highlightAll();
     const chatForm = document.getElementById('chat-form');
     const chatMessages = document.getElementById('chat-messages');
     const subtitle = document.getElementById('subtitle');
@@ -85,6 +113,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
         chatMessages.appendChild(messageElement);
         chatMessages.scrollTop = chatMessages.scrollHeight; // Rola para a última mensagem
+        Prism.highlightAll();
     }
 
     function showTypingIndicator() {
