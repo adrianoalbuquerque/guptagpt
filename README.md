@@ -1,8 +1,8 @@
-# GuptaGPT
+# Gupta AI Assistant
 
-GuptaGPT é uma interface de chatbot interativa baseada em JavaScript, estilizada com CSS e integrada com a API do Google Generative AI (Gemini). O projeto simula o comportamento de um chatbot semelhante ao ChatGPT, com suporte para markdown nas respostas e interação dinâmica com o usuário.
+Gupta AI Assistant é uma interface de chatbot interativa baseada em JavaScript, estilizada com CSS e integrada com a API do Google Generative AI (Gemini). O projeto simula o comportamento de um chatbot semelhante ao ChatGPT, com suporte para markdown nas respostas e interação dinâmica com o usuário.
 
-**Acesse a aplicação aqui:** [GuptaGPT Online](http://guptagpt.s3-website-sa-east-1.amazonaws.com/)
+**Acesse a aplicação aqui:** [Gupta AI Assistant Online](http://guptagpt.s3-website-sa-east-1.amazonaws.com/)
 
 ## Funcionalidades
 
@@ -36,7 +36,7 @@ Certifique-se de ter as seguintes ferramentas instaladas no seu ambiente:
 
 2. **Acesse o diretório do projeto:**
    ```bash
-   cd seu-repositorio
+   cd guptagpt
    ```
 
 3. **Instale as dependências:**
@@ -60,6 +60,7 @@ Certifique-se de ter as seguintes ferramentas instaladas no seu ambiente:
 ```
 .
 ├── src/
+│   ├── shared         # Pasta de recursos reutilizáveis
 │   ├── index.js       # Código principal
 │   ├── styles.css     # Estilos da aplicação
 │   └── ...
