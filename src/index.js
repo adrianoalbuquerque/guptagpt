@@ -3,9 +3,8 @@ import { marked } from 'marked';
 import './styles.css';
 
 import "prismjs";
-// import "prismjs/themes/prism-solarizedlight.css"; // Escolha um tema
-import "prismjs/themes/prism-tomorrow.css"; // Escolha um tema
-// import "prismjs/themes/prism-twilight.css"; // Escolha um tema
+import "prismjs/themes/prism-tomorrow.css"; // Tema Dark
+// import "prismjs/themes/prism.css"; // Tema light
 import "prismjs/components/prism-clike"; // Base para sintaxe similar a C-like
 import "prismjs/plugins/line-numbers/prism-line-numbers.css";
 import "prismjs/plugins/line-numbers/prism-line-numbers";
@@ -14,19 +13,19 @@ import "prismjs/plugins/toolbar/prism-toolbar"; // Plugin para a barra superior
 import "prismjs/plugins/copy-to-clipboard/prism-copy-to-clipboard"; // Adiciona o botão de copiar
 
 Prism.languages.sal = {
-  'comment': {
-    pattern: /\/\/.*/,
-    greedy: true
-  },
-  'string': {
-    pattern: /"([^"\\]|\\.)*"/,
-    greedy: true
-  },
-  'keyword': /\b(Call|Set|Return|If|Else|End If|For|While|Break|Continue|Then)\b/i,
-  'boolean': /\b(TRUE|FALSE)\b/i,
-  'number': /\b\d+(\.\d+)?\b/,
-  'operator': /[+\-*/=<>!&|]/,
-  'function': /\b[A-Za-z_][A-Za-z0-9_]*(?=\()/, // Detecta funções
+    'comment': {
+        pattern: /\/\/.*/,
+        greedy: true
+    },
+    'string': {
+        pattern: /"([^"\\]|\\.)*"/,
+        greedy: true
+    },
+    'keyword': /\b(Call|Set|Return|If|Else|End If|For|While|Break|Continue|Then)\b/i,
+    'boolean': /\b(TRUE|FALSE)\b/i,
+    'number': /\b\d+(\.\d+)?\b/,
+    'operator': /[+\-*/=<>!&|]/,
+    'function': /\b[A-Za-z_][A-Za-z0-9_]*(?=\()/, // Detecta funções
 };
 
 const apiKey = process.env.GEMINI_API_KEY;

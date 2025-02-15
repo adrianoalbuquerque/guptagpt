@@ -126,7 +126,7 @@ body {
   margin: 10px 0;
   padding: 10px;
   border-radius: 8px;
-  max-width: 85%;
+  /* max-width: 85%; */
   word-wrap: break-word;
 }
 
@@ -380,4 +380,8 @@ ul {
   40% {
     opacity: 1;
   }
+}
+
+pre[class*="language-"] {
+  border-radius: 12px;
 }
