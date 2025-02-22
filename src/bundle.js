@@ -5,6 +5,14 @@ const chatForm = document.getElementById("chat-form");
 const chatMessage = document.getElementById("chat-messages");
 const chatContainer = document.getElementById("chat-container");
 const subtitle = document.getElementById("subtitle");
+const footer = document.getElementById("footer");
+
+const dataAtual = new Date();
+const anoAtual = dataAtual.getFullYear();
+
+const elementoAnoAtual = document.getElementById("ano-atual");
+
+elementoAnoAtual.textContent = `${anoAtual} Gupta AI Assistant.`;
 
 // Aplica o tema baseado no localStorage
 function applyTheme(theme) {
@@ -14,6 +22,7 @@ function applyTheme(theme) {
     chatMessage.classList.remove("light", "dark");
     chatContainer.classList.remove("light", "dark");
     subtitle.classList.remove("light", "dark");
+    footer.classList.remove("light", "dark");
 
     body.classList.add(theme);
     header.classList.add(theme);
@@ -21,6 +30,7 @@ function applyTheme(theme) {
     chatMessage.classList.add(theme);
     chatContainer.classList.add(theme);
     subtitle.classList.add(theme);
+    footer.classList.add(theme);
 
     if (theme === "dark") {
         themeToggle.classList.replace("fa-moon-o", "fa-sun-o");
