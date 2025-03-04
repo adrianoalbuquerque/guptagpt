@@ -118,7 +118,7 @@ body {
   flex: 1;
   padding: 15px;
   overflow-y: auto;
-  max-height: calc(100vh - 250px);
+  max-height: calc(100vh - 280px);
   border: 1px solid #ddd;
 }
 
@@ -414,3 +414,24 @@ pre[class*="language-"] {
   border-radius: 12px;
 }
 
+.fa-eraser {
+  color: #ff4d4d;
+  border: none;
+  padding: 10px;
+}
+
+.fa-eraser:hover {
+  color: #cc0000;
+}
+
+.clear-chat-icon {
+  font-size: 20px;
+  cursor: pointer;
+}
+
+.row {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 100%;
+}

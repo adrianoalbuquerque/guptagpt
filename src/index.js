@@ -46,12 +46,12 @@ const generationConfig = {
     responseMimeType: "text/plain",
 };
 
-document.addEventListener('DOMContentLoaded', () => {
-    Prism.highlightAll();
+document.addEventListener('DOMContentLoaded', function () {
     const chatForm = document.getElementById('chat-form');
     const chatMessages = document.getElementById('chat-messages');
     const subtitle = document.getElementById('subtitle');
     const typingIndicator = document.getElementById('typing-indicator');
+    const clearChatButton = document.getElementById('clear-chat');
     let isFirstMessage = true;
 
     chatForm.addEventListener('submit', async (event) => {
@@ -61,10 +61,9 @@ document.addEventListener('DOMContentLoaded', () => {
         const userMessage = inputElement.value.trim();
 
         if (userMessage) {
-
             if (isFirstMessage) {
-                subtitle.classList.add('hidden');
-                chatMessages.classList.remove('hidden');
+                subtitle.classList.add('hidden'); // Esconde o subtítulo
+                chatMessages.classList.remove('hidden'); // Mostra o chat
                 isFirstMessage = false;
             }
 
@@ -72,21 +71,20 @@ document.addEventListener('DOMContentLoaded', () => {
             inputElement.value = '';
             addMessageToChat(userMessage, 'user');
 
+            // Mostra a borracha ao iniciar a conversa
+            clearChatButton.classList.remove('hidden');
+
             // Mostra o indicador de "digitando"
             showTypingIndicator();
 
             try {
-                // Envia a mensagem para a API e obtém a resposta
                 const chatSession = model.startChat({
                     generationConfig,
                     history: [],
                 });
                 const result = await chatSession.sendMessage(userMessage);
 
-                // Adiciona a resposta formatada ao chat
                 addMessageToChat(result.response.text(), 'bot', true);
-
-                // Oculta o indicador de "digitando"
                 hideTypingIndicator();
             } catch (error) {
                 console.error('Erro ao obter resposta da API:', error);
@@ -98,6 +96,21 @@ document.addEventListener('DOMContentLoaded', () => {
         } else {
             console.warn('O campo de mensagem está vazio.');
         }
+    });
+
+    clearChatButton.addEventListener('click', () => {
+        // Limpa as mensagens do chat
+        chatMessages.innerHTML = '';
+
+        // Esconde o chat e mostra o subtítulo de volta
+        subtitle.classList.remove('hidden');
+        chatMessages.classList.add('hidden');
+
+        // Esconde a borracha novamente
+        clearChatButton.classList.add('hidden');
+
+        // Reseta o estado da conversa
+        isFirstMessage = true;
     });
 
     function addMessageToChat(message, sender, isMarkdown = false) {
@@ -117,9 +130,11 @@ document.addEventListener('DOMContentLoaded', () => {
 
     function showTypingIndicator() {
         typingIndicator.classList.remove('hidden');
+        clearChatButton.classList.add('hidden');
     }
 
     function hideTypingIndicator() {
         typingIndicator.classList.add('hidden');
+        clearChatButton.classList.remove('hidden');
     }
 });
